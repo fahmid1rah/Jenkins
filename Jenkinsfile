@@ -45,12 +45,7 @@ pipeline {
                 echo "Deploy to Code to the Production Environment ${PRODUCTION_ENVIRONMENT}"
             }
         }
-        stage('Initialize'){
-            steps{
-                echo "PATH = ${M2_HOME}/bin:${PATH}"
-                echo "M2_HOME = /opt/maven"
-            }
-        }
+        
         stage('Build') {
             steps {
                 dir("/ProgramData/Jenkins/.jenkins/workspace/6.2C") {
