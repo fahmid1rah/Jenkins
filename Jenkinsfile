@@ -6,10 +6,7 @@ pipeline {
         TESTING_ENVIRONMENT = 'TEST ENV'
         PRODUCTION_ENVIRONMENT = 'FAHMIUDR'
     }
-    tools {
-        maven "MAVEN"
-        jdk "JDK"
-    }
+    
     stages {
         stage('Build') {
             steps {
@@ -45,20 +42,5 @@ pipeline {
             }
         }
         
-        stage('Build') {
-            steps {
-                dir("/ProgramData/Jenkins/.jenkins/workspace/6.2C") {
-                sh 'mvn -B -DskipTests clean package'
-                }
-            }
-        }
-     }
-    post {
-       always {
-          junit(
-        allowEmptyResults: true,
-        testResults: '*/test-reports/.xml'
-      )
-      }
     }
 }
